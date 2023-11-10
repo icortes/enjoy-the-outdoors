@@ -1,10 +1,12 @@
-//import styles from './page.module.css'
-
+import Jumbotron from './Jumbotron';
 
 export default function Home() {
   return (
-    <main className="container-md">
-      
-    </main>
+    <>
+      <Jumbotron />
+      <main className='container-md'>
+        
+      </main>
+    </>
   );
 }

@@ -5,7 +5,7 @@ export default function NavBar() {
     <nav className='navbar navbar-expand-lg bg-body-tertiary'>
       <div className='container-fluid'>
         <Link className='navbar-brand' href='/'>
-          Enjoy the Outdoors
+          SummitQuest
         </Link>
         <button
           className='navbar-toggler'
