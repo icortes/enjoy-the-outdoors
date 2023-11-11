@@ -1,6 +1,7 @@
-import dbConnect from '../lib/dbConnect';
+import prisma from '../../../prisma/prisma';
 
 export default async function NationalParks() {
-  await dbConnect();
+  const park = await prisma.national_park_data.findFirst({});
+  console.log(park);
   return <></>;
 }

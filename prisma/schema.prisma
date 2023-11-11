@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type MountainDataCoords {
+  lat Float
+  lng Float
+}
+
+type NationalParkDataLocation {
+  coordinates Float[]
+  type        String
+}
+
+model mountain_data {
+  id        String             @id @default(auto()) @map("_id") @db.ObjectId
+  coords    MountainDataCoords
+  desc      String
+  effort    String
+  elevation Int
+  img       String
+  name      String
+
+  @@map("mountain-data")
+}
+
+model national_park_data {
+  id           String                   @id @default(auto()) @map("_id") @db.ObjectId
+  /// Multiple data types found: String: 99.4%, Int: 0.6% out of 359 sampled entries
+  Address      Json
+  City         String
+  /// Multiple data types found: String: 89.4%, Int: 10.6% out of 359 sampled entries
+  Fax          Json
+  Latitude     Float
+  Location     NationalParkDataLocation
+  LocationID   String
+  LocationName String
+  Longitude    Float
+  /// Multiple data types found: String: 51.5%, Int: 48.5% out of 359 sampled entries
+  Phone        Json
+  State        String
+  Visit        String?
+  /// Multiple data types found: String: 12%, Int: 88% out of 359 sampled entries
+  ZipCode      Json
+
+  @@map("national-park-data")
+}
