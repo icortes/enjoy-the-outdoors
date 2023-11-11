@@ -1,14 +1,17 @@
 'use client';
 
 import { signal } from '@preact/signals';
-import prisma from '../../../prisma/prisma';
+
+import Card from './Card';
 
 export default function NationalParks() {
-  // const parks = await prisma.national_park_data.findMany({});
-  // console.log(parks);
   const searchOptions = ['by location', 'by park type'];
   let selectedOption = signal('by location');
+  const parks: any[] = [];
 
+  fetch('api/nationalparks').then((res) => res.json().then((park) => parks.push(park)));
+
+  console.log(parks);
   function handleOptionChange(event: any): void {
     selectedOption = event.target.value;
     console.log(event.target.value);
@@ -36,6 +39,11 @@ export default function NationalParks() {
           type='text'
           placeholder='search park here...'
         />
+      </div>
+      <div className='row mt-3'>
+        <div className='col-4'>
+          <Card />
+        </div>
       </div>
     </main>
   );
