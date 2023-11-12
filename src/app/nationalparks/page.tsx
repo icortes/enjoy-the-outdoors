@@ -1,49 +1,52 @@
 'use client';
 
-import { signal } from '@preact/signals';
-
 import Card from './Card';
+import Search from './Search';
+import { useSelectedStateStore } from '../store/SelectedState';
+import { useEffect, useState } from 'react';
 
 export default function NationalParks() {
-  const searchOptions = ['by location', 'by park type'];
-  let selectedOption = signal('by location');
-  const parks: any[] = [];
+  let [parkData, setParkData] = useState<any[]>([]);
+  const selectedState = useSelectedStateStore();
+  console.log(selectedState.selectedState);
 
-  fetch('api/nationalparks').then((res) => res.json().then((park) => parks.push(park)));
-
-  console.log(parks);
-  function handleOptionChange(event: any): void {
-    selectedOption = event.target.value;
-    console.log(event.target.value);
-  }
+  useEffect(() => {
+    fetch('api/nationalparks')
+      .then((res) => res.json())
+      .then((parks) => setParkData(parks.data));
+  }, []);
 
   return (
     <main className='container-md'>
-      <div className='input-group mt-3'>
-        <span className='input-group-text'>Search</span>
-        <select
-          className='input-group-text'
-          id='search-option'
-          onChange={handleOptionChange}>
-          {searchOptions.map((_option) => {
+      <Search />
+      <div className='row mt-3 g-3'>
+        {parkData
+          .filter((park) => {
+            if (selectedState.selectedState == 'All') {
+              return park;
+            } else if (selectedState.selectedState == park.State) {
+              return park;
+            }
+          })
+          .map((park) => {
             return (
-              <option key={_option} value={_option}>
-                {_option}
-              </option>
+              <div className='col-4' key={park.id}>
+                <Card
+                  locationName={park.LocationName}
+                  locationID={park.LocationID}
+                  address={park.Address}
+                  city={park.City}
+                  state={park.State}
+                  zipCode={park.ZipCode}
+                  phone={park.Phone}
+                  fax={park.Fax}
+                  latitude={park.Latitude}
+                  longitude={park.Longitude}
+                  location={park.Location}
+                />
+              </div>
             );
           })}
-        </select>
-        <input
-          className='form-control'
-          id='search-input'
-          type='text'
-          placeholder='search park here...'
-        />
-      </div>
-      <div className='row mt-3'>
-        <div className='col-4'>
-          <Card />
-        </div>
       </div>
     </main>
   );
