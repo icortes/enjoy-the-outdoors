@@ -4,11 +4,15 @@ import Card from './Card';
 import Search from './Search';
 import { useSelectedStateStore } from '../store/SelectedState';
 import { useEffect, useState } from 'react';
+import { useSearchByStore } from '../store/SearchByState';
 
 export default function NationalParks() {
   let [parkData, setParkData] = useState<any[]>([]);
   const selectedState = useSelectedStateStore();
   console.log(selectedState.selectedState);
+
+  const searchByState = useSearchByStore();
+  console.log(searchByState.searchBy);
 
   useEffect(() => {
     fetch('api/nationalparks')
