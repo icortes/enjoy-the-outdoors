@@ -1,9 +1,11 @@
 'use client';
 
+import { useMountainStore } from '../store/SelectedMountainStore';
 import { useEffect, useState } from 'react';
 import Dropdown from './Dropdown';
+import MountainCard from './MountainCard';
 
-type Mountain = {
+export type Mountain = {
   id: number;
   name: string;
   effort: string;
@@ -16,6 +18,11 @@ type Mountain = {
 export default function Mountains() {
   const [mountainData, setMountainData] = useState<Mountain[]>([]);
   const mountainNames = mountainData.map((mountain) => mountain.name);
+  const mountainStore = useMountainStore();
+
+
+  let selectedMountainData =
+    mountainData.find((mountain) => mountain.name == mountainStore.selectedMountain)!;
 
   useEffect(() => {
     fetch('api/mountains')
@@ -26,6 +33,7 @@ export default function Mountains() {
   return (
     <main className='container-md'>
       <Dropdown mountainNames={mountainNames} />
+      <MountainCard mountain={selectedMountainData} />
     </main>
   );
 }
