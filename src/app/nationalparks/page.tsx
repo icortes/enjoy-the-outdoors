@@ -10,13 +10,13 @@ import { useSelectedParkTypeStore } from '../store/SelectedParkTypeState';
 export default function NationalParks() {
   let [parkData, setParkData] = useState<any[]>([]);
   const selectedState = useSelectedStateStore();
-  console.log(selectedState.selectedState);
+  //console.log(selectedState.selectedState);
 
   const searchByState = useSearchByStore();
-  console.log(searchByState.searchBy);
+  //console.log(searchByState.searchBy);
 
   const selectedParkTypeState = useSelectedParkTypeStore();
-  console.log(selectedParkTypeState.selectedParkType);
+  //console.log(selectedParkTypeState.selectedParkType);
 
   useEffect(() => {
     fetch('api/nationalparks')

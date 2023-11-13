@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'SummitQuest',
-  description: 'The site specializes in finding national parks amd mountains to climb.',
+  description: 'The site specializes in finding national parks and mountains to climb.',
   // viewport: 'width=device-width, initial-scale=1',
 };
 
