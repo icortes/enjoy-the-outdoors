@@ -5,6 +5,7 @@ import Search from './Search';
 import { useSelectedStateStore } from '../store/SelectedState';
 import { useEffect, useState } from 'react';
 import { useSearchByStore } from '../store/SearchByState';
+import { useSelectedParkTypeStore } from '../store/SelectedParkTypeState';
 
 export default function NationalParks() {
   let [parkData, setParkData] = useState<any[]>([]);
@@ -13,6 +14,9 @@ export default function NationalParks() {
 
   const searchByState = useSearchByStore();
   console.log(searchByState.searchBy);
+
+  const selectedParkTypeState = useSelectedParkTypeStore();
+  console.log(selectedParkTypeState.selectedParkType);
 
   useEffect(() => {
     fetch('api/nationalparks')
@@ -24,33 +28,66 @@ export default function NationalParks() {
     <main className='container-md'>
       <Search />
       <div className='row mt-3 g-3'>
-        {parkData
-          .filter((park) => {
-            if (selectedState.selectedState == 'All') {
-              return park;
-            } else if (selectedState.selectedState == park.State) {
-              return park;
-            }
-          })
-          .map((park) => {
-            return (
-              <div className='col-4' key={park.id}>
-                <Card
-                  locationName={park.LocationName}
-                  locationID={park.LocationID}
-                  address={park.Address}
-                  city={park.City}
-                  state={park.State}
-                  zipCode={park.ZipCode}
-                  phone={park.Phone}
-                  fax={park.Fax}
-                  latitude={park.Latitude}
-                  longitude={park.Longitude}
-                  location={park.Location}
-                />
-              </div>
-            );
-          })}
+        {searchByState.searchBy == 'by location'
+          ? parkData
+              .filter((park) => {
+                if (selectedState.selectedState == 'All') {
+                  return park;
+                } else if (selectedState.selectedState == park.State) {
+                  return park;
+                }
+              })
+              .map((park) => {
+                return (
+                  <div className='col-4' key={park.id}>
+                    <Card
+                      locationName={park.LocationName}
+                      locationID={park.LocationID}
+                      address={park.Address}
+                      city={park.City}
+                      state={park.State}
+                      zipCode={park.ZipCode}
+                      phone={park.Phone}
+                      fax={park.Fax}
+                      latitude={park.Latitude}
+                      longitude={park.Longitude}
+                      location={park.Location}
+                    />
+                  </div>
+                );
+              })
+          : parkData
+              .filter((park) => {
+                if (selectedParkTypeState.selectedParkType == 'All') {
+                  return park;
+                } else if (
+                  park.LocationName.toLowerCase().includes(
+                    selectedParkTypeState.selectedParkType.toLowerCase()
+                  )
+                ) {
+                  console.log(selectedParkTypeState.selectedParkType.toLowerCase());
+                  return park;
+                }
+              })
+              .map((park) => {
+                return (
+                  <div className='col-4' key={park.id}>
+                    <Card
+                      locationName={park.LocationName}
+                      locationID={park.LocationID}
+                      address={park.Address}
+                      city={park.City}
+                      state={park.State}
+                      zipCode={park.ZipCode}
+                      phone={park.Phone}
+                      fax={park.Fax}
+                      latitude={park.Latitude}
+                      longitude={park.Longitude}
+                      location={park.Location}
+                    />
+                  </div>
+                );
+              })}
       </div>
     </main>
   );
