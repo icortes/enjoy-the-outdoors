@@ -3,6 +3,7 @@
 import { useSelectedStateStore } from '../store/SelectedState';
 import { useSearchByStore } from '../store/SearchByState';
 import { useSelectedParkTypeStore } from '../store/SelectedParkTypeState';
+import { useEffect } from 'react';
 
 export default function Search() {
   const searchOptions = ['by location', 'by park type'];
@@ -97,62 +98,46 @@ export default function Search() {
     }
   }
 
+  useEffect(() => {
+    searchByState.updateSearchBy('by location');
+    selectedState.updateState('All');
+    selectedParkTypeState.updateParkType('All');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className='input-group mt-3'>
       <span className='input-group-text'>Search</span>
       <select
         className='input-group-text'
         id='search-option'
+        defaultValue={'All'}
         onChange={handleOptionChange}>
         {searchOptions.map((_option) => {
-          if (searchByState.searchBy == _option) {
-            return (
-              <option key={_option} value={_option} selected>
-                {_option}
-              </option>
-            );
-          } else {
-            return (
-              <option key={_option} value={_option}>
-                {_option}
-              </option>
-            );
-          }
+          return (
+            <option key={_option} value={_option}>
+              {_option}
+            </option>
+          );
         })}
       </select>
 
-      <select className='input-group-text' id='state-option' onChange={handleStateChange}>
+      <select
+        className='input-group-text'
+        id='state-option'
+        defaultValue={'All'}
+        onChange={handleStateChange}>
         {searchByState.searchBy == 'by location'
-          ? locationsArray.map((location) => {
-              if (selectedState.selectedState == location) {
-                return (
-                  <option key={location} value={location} selected>
-                    {location}
-                  </option>
-                );
-              } else {
-                return (
-                  <option key={location} value={location}>
-                    {location}
-                  </option>
-                );
-              }
-            })
-          : parkTypesArray.map((type) => {
-              if (selectedParkTypeState.selectedParkType == type) {
-                return (
-                  <option key={type} value={type} selected>
-                    {type}
-                  </option>
-                );
-              } else {
-                return (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                );
-              }
-            })}
+          ? locationsArray.map((location) => (
+              <option key={location} value={location}>
+                {location}
+              </option>
+            ))
+          : parkTypesArray.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
       </select>
     </div>
   );
