@@ -25,7 +25,7 @@ export default function MountainCard({ mountain }: { mountain: Mountain }) {
             </div>
           </div>
           <div className='card-footer'>
-            <SunriseSunset />
+            <SunriseSunset coords={mountain.coords} />
           </div>
         </div>
       ) : (
