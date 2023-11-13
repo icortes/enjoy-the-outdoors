@@ -1,24 +1,31 @@
-import { useState } from 'react';
+import SunriseSunset from './SunriseSunset';
 import { Mountain } from './page';
 
 export default function MountainCard({ mountain }: { mountain: Mountain }) {
-  const [weatherData, setWeatherData] = useState({});
-
   return (
     <div>
       {mountain ? (
         <div className='card mt-5'>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className='card-img-top'
-            src={`assets/images/${mountain.img}`}
-            alt={`image of ${mountain.name}`}
-          />
-          <div className='card-body'>
-            <div className='card-title'>{mountain.name}</div>
-            <div className='card-subtitle'>Effort: {mountain.effort}</div>
-            <div className='card-subtitle'>Elevation: {mountain.elevation}</div>
-            <div className='card-text mt-3'>{mountain.desc}</div>
+          <div className='row g-0'>
+            <div className='col-sm-12 col-md-5'>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className='img-fluid h-100 w-100'
+                src={`assets/images/${mountain.img}`}
+                alt={`image of ${mountain.name}`}
+              />
+            </div>
+            <div className='col-md-7'>
+              <div className='card-body'>
+                <div className='card-title'>{mountain.name}</div>
+                <div className='card-subtitle'>Effort: {mountain.effort}</div>
+                <div className='card-subtitle'>Elevation: {mountain.elevation}</div>
+                <div className='card-text mt-3'>{mountain.desc}</div>
+              </div>
+            </div>
+          </div>
+          <div className='card-footer'>
+            <SunriseSunset />
           </div>
         </div>
       ) : (
