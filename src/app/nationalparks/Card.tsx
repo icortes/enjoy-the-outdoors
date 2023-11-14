@@ -32,12 +32,12 @@ export default function Card({
         <span>{locationID.toUpperCase()}</span>
       </div>
       <div className='card-body'>
-        <div className='card-title'>{address}</div>
+        {address != '0' ? <div className='card-title'>{address}</div> : null}
         <div className='card-subtitle text-secondary'>
-          {city}, {state} {zipCode}
+          {city}, {state} {zipCode != 0 ? zipCode : null}
         </div>
-        <div className='card-text'>Phone: {phone}</div>
-        <div className='card-text'>Fax: {fax}</div>
+        {phone != '0' ? <div className='card-text'>Phone: {phone}</div> : null}
+        {fax != '0' ? <div className='card-text'>Fax: {fax}</div> : null}
         <div className='card-text'>Latitude: {latitude}</div>
         <div className='card-text'>Longitude: {longitude}</div>
       </div>
