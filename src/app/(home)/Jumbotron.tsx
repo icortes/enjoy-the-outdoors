@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 export default function Jumbotron() {
   const jumbo = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/assets/images/jumbotron-bg.jpg)`,
+    backgroundImage: `url(/assets/images/jumbotron-bg.jpg)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
@@ -17,7 +16,7 @@ export default function Jumbotron() {
   };
   return (
     <div className='pt-5 mb-md-4 text-md-end text-sm-start' style={jumbo}>
-      <div className='container-fluid h-100 d-flex flex-column justify-content-around mt-5 py-3 py-sm-3 py-md-5'>
+      <div className='container-lg h-100 d-flex flex-column justify-content-around mt-5 py-3 py-sm-3 py-md-5'>
         <h1 className='display-3 fw-bold'>SummitQuest</h1>
         <div className='col-md-9 fs-4 mt-md-5 text-start'>
           Discover nature&apos;s wonders with SummitQuest! Whether you&apos;re a seasoned

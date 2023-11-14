@@ -1,30 +1,75 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function NavBar() {
   const [navbar, setNavBar] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
 
   const changeBackground = () => {
-    if (window.scrollY >= 99) {
+    if (window.scrollY >= 79) {
       setNavBar(true);
     } else {
       setNavBar(false);
     }
-    //99
+    //79 navbar height
+  };
+
+  const handleResize = () => {
+    if (window.innerWidth <= 575) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+    //575 mobile window size
   };
 
   useEffect(() => {
     window.addEventListener('scroll', changeBackground);
+    window.addEventListener('resize', handleResize);
   }, []);
+
+  function Navlinks({ textColor }: { textColor: string }) {
+    return (
+      <div className='navbar-nav'>
+        <Link
+          className={
+            navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
+          }
+          href='/'>
+          Home
+        </Link>
+        <Link
+          className={
+            navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
+          }
+          href='/nationalparks'>
+          National Parks
+        </Link>
+        <Link
+          className={
+            navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
+          }
+          href='/mountains'>
+          Mountains
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <nav
       className={
         navbar
-          ? 'navbar navbar-expand-sm bg-body-secondary fixed-top'
-          : 'navbar navbar-expand-sm bg-transparent fixed-top'
+          ? `navbar navbar-expand-sm bg-${
+              isMobile ? 'body-secondary' : 'body-secondary'
+            } fixed-top`
+          : `navbar navbar-expand-sm bg-${
+              isMobile ? 'body-secondary' : 'transparent'
+            } fixed-top`
       }>
       <div className='container-fluid'>
         <Link className='navbar-brand' href='/'>
@@ -47,17 +92,11 @@ export default function NavBar() {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbar'>
-          <div className='navbar-nav'>
-            <Link className='nav-link fs-4 text-white' href='/'>
-              Home
-            </Link>
-            <Link className='nav-link fs-4 text-white' href='/nationalparks'>
-              National Parks
-            </Link>
-            <Link className='nav-link fs-4 text-white' href='/mountains'>
-              Mountains
-            </Link>
-          </div>
+          {pathname == '/' ? (
+            <Navlinks textColor={'text-white'} />
+          ) : (
+            <Navlinks textColor={'text-black'} />
+          )}
         </div>
       </div>
     </nav>

@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Fredoka } from 'next/font/google';
 import BootstrapClient from './BootstrapClient';
 import NavBar from '@/app/NavBar';
 
-const inter = Inter({ subsets: ['latin'] });
+const fredoka = Fredoka({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'SummitQuest',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className} data-bs-theme={'dark'}>
+      <body className={fredoka.className} data-bs-theme={'dark'}>
         <NavBar />
         {children}
         <BootstrapClient />
