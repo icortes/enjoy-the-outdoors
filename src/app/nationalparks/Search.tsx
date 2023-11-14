@@ -109,7 +109,7 @@ export default function Search() {
     <div className='input-group mt-3'>
       <span className='input-group-text'>Search</span>
       <select
-        className='input-group-text'
+        className='input-group-text form-select'
         id='search-option'
         value={searchByState.searchBy}
         onChange={handleOptionChange}>
@@ -123,7 +123,7 @@ export default function Search() {
       </select>
 
       <select
-        className='input-group-text'
+        className='input-group-text form-select'
         id='state-option'
         value={
           searchByState.searchBy == 'by location'
