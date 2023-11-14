@@ -88,6 +88,8 @@ export default function Search() {
 
   function handleOptionChange(event: { currentTarget: { value: string } }): void {
     searchByState.updateSearchBy(event.currentTarget.value);
+    selectedState.updateState('All');
+    selectedParkTypeState.updateParkType('All');
   }
 
   function handleStateChange(event: { currentTarget: { value: string } }) {
@@ -100,8 +102,6 @@ export default function Search() {
 
   useEffect(() => {
     searchByState.updateSearchBy('by location');
-    selectedState.updateState('All');
-    selectedParkTypeState.updateParkType('All');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -128,7 +128,7 @@ export default function Search() {
         value={
           searchByState.searchBy == 'by location'
             ? selectedState.selectedState
-            : searchByState.searchBy
+            : selectedParkTypeState.selectedParkType
         }
         onChange={handleStateChange}>
         {searchByState.searchBy == 'by location'
