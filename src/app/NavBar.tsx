@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function NavBar() {
   const [navbar, setNavBar] = useState(false);
@@ -15,7 +15,9 @@ export default function NavBar() {
     //99
   };
 
-  window.addEventListener('scroll', changeBackground);
+  useEffect(() => {
+    window.addEventListener('scroll', changeBackground);
+  }, []);
 
   return (
     <nav

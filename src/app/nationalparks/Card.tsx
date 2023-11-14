@@ -28,7 +28,7 @@ export default function Card({
   return (
     <div className='card h-100'>
       <div className='card-header d-flex justify-content-between'>
-        <span className='fs-5'>{locationName}</span>
+        <span className='fs-5 me-3'>{locationName}</span>
         <span>{locationID.toUpperCase()}</span>
       </div>
       <div className='card-body d-flex flex-column justify-content-between'>
@@ -43,12 +43,13 @@ export default function Card({
           <div className='card-text'>Longitude: {longitude}</div>
         </div>
         <div>
-          <p className='text-end'>
+          <p className='text-end mt-3'>
             <a
               className='btn btn-success'
               href={`http://www.google.com/maps/place/${latitude},${longitude}`}
               target='_blank'>
-              Visit
+              <small>Maps</small>
+              <i className='bi bi-box-arrow-up-right ms-2'></i>
             </a>
           </p>
         </div>
