@@ -7,7 +7,7 @@ export default function Jumbotron() {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
-    height: '100vh',
+    height: '110vh',
 
     textShadow: '3px 3px 2px rgba(0, 0, 0, 1)',
   };
@@ -20,12 +20,10 @@ export default function Jumbotron() {
       <div className='container-fluid h-100 d-flex flex-column justify-content-around mt-5 py-3 py-sm-3 py-md-5'>
         <h1 className='display-3 fw-bold'>SummitQuest</h1>
         <div className='col-md-9 fs-4 mt-md-5 text-start'>
-          Welcome to SummitQuest, your go-to resource for discovering the splendor of
-          national parks and conquering majestic mountains! Immerse yourself in the
-          wonders of nature as you embark on unforgettable adventures in the great
-          outdoors. Whether you&apos;re a seasoned mountaineer or a nature enthusiast
-          seeking a tranquil escape, we&apos;ve got the perfect destination waiting for
-          you.
+          Discover nature&apos;s wonders with SummitQuest! Whether you&apos;re a seasoned
+          mountaineer or a nature enthusiast, embark on unforgettable adventures in
+          national parks and conquer majestic mountains. Your perfect outdoor escape
+          awaits!
           <div
             className='mt-5 d-flex flex-column flex-sm-row justify-content-sm-evenly align-items-between'
             style={noTextShadow}>

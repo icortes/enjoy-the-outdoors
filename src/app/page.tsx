@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Jumbotron />
-      <main className='container-md'>
+      <main className='container-md mt-5'>
         <div className='row g-4'>
           <div className='col-md-6'>
             <h3>Discover Your Perfect Park:</h3>
