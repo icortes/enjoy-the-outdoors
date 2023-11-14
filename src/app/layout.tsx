@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'SummitQuest',
   description: 'The site specializes in finding national parks and mountains to climb.',
   // viewport: 'width=device-width, initial-scale=1',
+  icons: '/favicon.ico',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
