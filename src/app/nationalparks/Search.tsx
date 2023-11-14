@@ -111,7 +111,7 @@ export default function Search() {
       <select
         className='input-group-text'
         id='search-option'
-        defaultValue={'All'}
+        value={searchByState.searchBy}
         onChange={handleOptionChange}>
         {searchOptions.map((_option) => {
           return (
@@ -125,7 +125,11 @@ export default function Search() {
       <select
         className='input-group-text'
         id='state-option'
-        defaultValue={'All'}
+        value={
+          searchByState.searchBy == 'by location'
+            ? selectedState.selectedState
+            : searchByState.searchBy
+        }
         onChange={handleStateChange}>
         {searchByState.searchBy == 'by location'
           ? locationsArray.map((location) => (
