@@ -34,7 +34,7 @@ export default function Card({
       <div className='card-body d-flex flex-column justify-content-between'>
         <div>
           {address != '0' ? <div className='card-title'>{address}</div> : null}
-          <div className='card-subtitle text-secondary'>
+          <div className='card-subtitle text-secondary mb-4'>
             {city}, {state} {zipCode != 0 ? zipCode : null}
           </div>
           {phone != '0' ? <div className='card-text'>Phone: {phone}</div> : null}
@@ -45,7 +45,7 @@ export default function Card({
         <div>
           <p className='text-end mt-3'>
             <a
-              className='btn btn-success'
+              className='btn btn-success stretched-link'
               href={`http://www.google.com/maps/place/${latitude},${longitude}`}
               target='_blank'>
               <small>Maps</small>
