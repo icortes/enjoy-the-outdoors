@@ -7,7 +7,7 @@ export default function Footer() {
         href='/'
         className='col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none'>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src='assets/logo/logo.png' alt='logo' width={35} />
+        <img src='assets/logo/logo.png' alt='logo' width={35} height={35}/>
       </a>
 
       <ul className='nav col-md-4 justify-content-end'>

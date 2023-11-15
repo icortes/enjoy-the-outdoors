@@ -24,12 +24,13 @@ export default function Mountains() {
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'top center',
-    height: '150vh',
   };
 
   return (
     <main className='pt-5' style={backgroundImage}>
-      <div className='container-md pt-5'>
+      <div
+        className='container-md py-5'
+        style={{ position: 'relative', minHeight: '100vh' }}>
         {mountainNameData ? (
           <>
             <Dropdown mountainNames={mountainNamesArray} />

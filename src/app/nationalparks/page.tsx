@@ -25,12 +25,13 @@ export default function NationalParks() {
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center center',
+    height: '100%'
   };
 
   //ternary operator
   return (
     <main className='py-5' style={backgroundImage}>
-      <div className='container-md pt-5'>
+      <div className='container-md pt-5' style={{position: 'relative', minHeight: '100vh'}}>
         <Search />
         <div className='row mt-3 g-3'>
           {searchByState.searchBy == 'by location'

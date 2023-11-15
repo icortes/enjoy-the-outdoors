@@ -79,6 +79,7 @@ export default function NavBar() {
             alt='logo'
             className='d-inline-block align-text-top'
             width={50}
+            height={50}
           />
         </Link>
         <button
