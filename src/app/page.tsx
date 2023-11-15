@@ -6,8 +6,15 @@ export default function Home() {
       <Jumbotron />
       <main className='container-md mt-5'>
         <div className='row g-4'>
-          <div className='col-md-6'>
-            <h3>Discover Your Perfect Park:</h3>
+          <div className='col-sm-6'>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className='img-fluid img-thumbnail rounded-3 shadow-lg w-100'
+              src='/assets/images/redwoods.jpg'
+              alt='santa cruz mountain giant redwood trees'
+            />
+            <h3 className='mt-3'>Discover Your Perfect Park:</h3>
+            <hr />
             <p>
               Embark on a personalized journey with SummitQuest and find the national park
               that speaks to your soul. Our intuitive search tools empower you to tailor
@@ -16,16 +23,15 @@ export default function Home() {
               curated a selection of parks to match your unique desires.
             </p>
           </div>
-          <div className='col-md-6'>
+          <div className='col-sm-6'>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              className='img-fluid rounded-3 shadow-lg w-100'
-              src='/assets/images/redwoods.jpg'
-              alt='santa cruz mountain giant redwood trees'
+              className='img-fluid img-thumbnail rounded-3 shadow-lg w-100'
+              src='/assets/images/waterfall.jpg'
+              alt='santa cruz mountain waterfall'
             />
-          </div>
-          <div className='col-md-6'>
-            <h3>Search by Your Preferences:</h3>
+            <h3 className='mt-3'>Search by Your Preferences:</h3>
+            <hr />
             <p>
               Use our advanced search features to filter national parks based on criteria
               such as scenery, activities, and difficulty level. Looking for a park with
@@ -34,14 +40,7 @@ export default function Home() {
               with your ideal outdoor experience.
             </p>
           </div>
-          <div className='col-md-6'>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className='img-fluid rounded-3 shadow-lg w-100'
-              src='/assets/images/waterfall.jpg'
-              alt='santa cruz mountain waterfall'
-            />
-          </div>
+          <div className='col-md-6'></div>
         </div>
       </main>
     </>

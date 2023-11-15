@@ -10,6 +10,7 @@ type NationalPark = {
   latitude: number;
   longitude: number;
   location: object;
+  visit?: string;
 };
 
 export default function Card({
@@ -24,6 +25,7 @@ export default function Card({
   latitude,
   longitude,
   location,
+  visit,
 }: NationalPark) {
   return (
     <div className='card h-100'>
@@ -44,8 +46,15 @@ export default function Card({
         </div>
         <div>
           <p className='text-end mt-3'>
+            {visit ? (
+              <a className='btn btn-success me-1' href={visit}>
+                <small>Visit</small>
+                <i className='bi bi-box-arrow-up-right ms-2'></i>
+              </a>
+            ) : null}
+
             <a
-              className='btn btn-success stretched-link'
+              className='btn btn-outline-success'
               href={`http://www.google.com/maps/place/${latitude},${longitude}`}
               target='_blank'>
               <small>Maps</small>

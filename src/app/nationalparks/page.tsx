@@ -55,6 +55,7 @@ export default function NationalParks() {
                         fax={park.Fax}
                         latitude={park.Latitude}
                         longitude={park.Longitude}
+                        visit={park.Visit}
                         location={park.Location}
                       />
                     </div>
