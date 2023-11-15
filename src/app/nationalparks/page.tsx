@@ -27,6 +27,7 @@ export default function NationalParks() {
     backgroundPosition: 'center center',
   };
 
+  //ternary operator
   return (
     <main className='py-5' style={backgroundImage}>
       <div className='container-md pt-5'>

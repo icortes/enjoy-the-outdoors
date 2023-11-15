@@ -1,3 +1,5 @@
+'use client'
+
 type NationalPark = {
   locationName: string;
   locationID: string;
