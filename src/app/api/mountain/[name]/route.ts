@@ -6,7 +6,6 @@ export async function GET(
 ) {
   try {
     const data = await prisma.mountain_data.findFirst({ where: { name: name } });
-    console.log(data);
     return Response.json(data);
   } catch (error) {
     return Response.json(error);

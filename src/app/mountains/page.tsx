@@ -1,33 +1,21 @@
 'use client';
 
-import { useMountainStore } from '../store/SelectedMountainStore';
 import { useEffect, useState } from 'react';
 import Dropdown from './Dropdown';
 import MountainCard from './MountainCard';
 
-export type Mountain = {
-  id: number;
+export type MountainName = {
   name: string;
-  effort: string;
-  desc: string;
-  img: string;
-  elevation: number;
-  coords: { lat: number; lng: number };
 };
 
 export default function Mountains() {
-  const [mountainData, setMountainData] = useState<Mountain[]>([]);
-  const mountainNames = mountainData.map((mountain) => mountain.name);
-  const mountainStore = useMountainStore();
-
-  let selectedMountainData = mountainData.find(
-    (mountain) => mountain.name == mountainStore.selectedMountain
-  )!;
+  const [mountainNameData, setMountainNameData] = useState<MountainName[]>([]);
+  const mountainNamesArray = mountainNameData.map((mountain) => mountain.name);
 
   useEffect(() => {
     fetch('api/mountains')
       .then((res) => res.json())
-      .then((data) => setMountainData(data));
+      .then((data) => setMountainNameData(data));
   }, []);
 
   const backgroundImage = {
@@ -42,8 +30,12 @@ export default function Mountains() {
   return (
     <main className='pt-5' style={backgroundImage}>
       <div className='container-md pt-5'>
-        <Dropdown mountainNames={mountainNames} />
-        <MountainCard mountain={selectedMountainData} />
+        {mountainNameData ? (
+          <>
+            <Dropdown mountainNames={mountainNamesArray} />
+            <MountainCard />
+          </>
+        ) : null}
       </div>
     </main>
   );
