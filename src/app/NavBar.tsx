@@ -34,7 +34,7 @@ export default function NavBar() {
 
   function Navlinks({ textColor }: { textColor: string }) {
     return (
-      <div className='navbar-nav'>
+      <div className='navbar-nav d-flex justify-content-center w-100'>
         <Link
           className={
             navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
