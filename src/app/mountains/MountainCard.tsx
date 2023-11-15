@@ -17,7 +17,9 @@ export default function MountainCard({ mountain }: { mountain: Mountain }) {
             </div>
             <div className='col-md-7'>
               <div className='card-body'>
-                <div className='card-title'>{mountain.name}</div>
+                <div className='card-title'>
+                  <h1>{mountain.name}</h1>
+                </div>
                 <div className='card-subtitle'>Effort: {mountain.effort}</div>
                 <div className='card-subtitle'>Elevation: {mountain.elevation}</div>
                 <div className='card-text mt-3'>{mountain.desc}</div>
@@ -30,7 +32,7 @@ export default function MountainCard({ mountain }: { mountain: Mountain }) {
         </div>
       ) : (
         <div className='d-flex justify-content-center mt-5'>
-          <div className='spinner-border' role='status'>
+          <div className='spinner-border text-success-emphasis' role='status'>
             <span className='visually-hidden'>Loading...</span>
           </div>
         </div>

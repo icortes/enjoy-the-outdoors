@@ -20,9 +20,9 @@ export default function Mountains() {
   const mountainNames = mountainData.map((mountain) => mountain.name);
   const mountainStore = useMountainStore();
 
-
-  let selectedMountainData =
-    mountainData.find((mountain) => mountain.name == mountainStore.selectedMountain)!;
+  let selectedMountainData = mountainData.find(
+    (mountain) => mountain.name == mountainStore.selectedMountain
+  )!;
 
   useEffect(() => {
     fetch('api/mountains')
@@ -30,10 +30,21 @@ export default function Mountains() {
       .then((data) => setMountainData(data));
   }, []);
 
+  const backgroundImage = {
+    backgroundImage: 'url(/assets/images/mountainsbg.jpg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'top center',
+    height: '100vh',
+  };
+
   return (
-    <main className='container-md'>
-      <Dropdown mountainNames={mountainNames} />
-      <MountainCard mountain={selectedMountainData} />
+    <main className='pt-5' style={backgroundImage}>
+      <div className='container-md pt-5'>
+        <Dropdown mountainNames={mountainNames} />
+        <MountainCard mountain={selectedMountainData} />
+      </div>
     </main>
   );
 }
