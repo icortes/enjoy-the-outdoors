@@ -47,7 +47,7 @@ export default function Card({
         <div>
           <p className='text-end mt-3'>
             {visit ? (
-              <a className='btn btn-success me-1' href={visit}>
+              <a className='btn btn-success me-1' href={visit} target="_blank">
                 <small>Visit</small>
                 <i className='bi bi-box-arrow-up-right ms-2'></i>
               </a>

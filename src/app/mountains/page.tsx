@@ -36,7 +36,7 @@ export default function Mountains() {
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'top center',
-    height: '100vh',
+    height: '150vh',
   };
 
   return (

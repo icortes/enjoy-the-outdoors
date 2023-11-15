@@ -70,7 +70,6 @@ export default function NationalParks() {
                       selectedParkTypeState.selectedParkType.toLowerCase()
                     )
                   ) {
-                    console.log(selectedParkTypeState.selectedParkType.toLowerCase());
                     return park;
                   }
                 })
@@ -88,6 +87,7 @@ export default function NationalParks() {
                         fax={park.Fax}
                         latitude={park.Latitude}
                         longitude={park.Longitude}
+                        visit={park.Visit}
                         location={park.Location}
                       />
                     </div>
