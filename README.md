@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Enjoy the Outdoors - Capstone 2
 
-## Getting Started
+[SummitQuest](https://summitquest.isaaccortes.com/) is a full-stack web application specializes in finding national parks to enjoy and mountains to climb.
 
-First, run the development server:
+## Pages
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Code Highlight
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* [Nextjs](https://nextjs.org/docs)
+* [React](https://react.dev/reference/react)
+* [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+* [Bootstrap Icons](https://icons.getbootstrap.com/)
+* [Typescript](https://www.typescriptlang.org/docs/)
+* [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+* [MongoDB](https://www.mongodb.com/docs/)
+* [Prisma ORM](https://www.prisma.io/docs/getting-started)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployed Link
 
-## Learn More
+* [See Live Site](https://summitquest.isaaccortes.com/)
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Isaac Cortes Hernandez** 
+  - [Link to Portfolio Site](https://portfolio.isaaccortes.com)
+  - [Link to Github](https://github.com/icortes)
+  - [Link to LinkedIn](https://www.linkedin.com/cortes-isaac)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the MIT License 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Acknowledgments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Prisma docs
+* Nextjs docs
+* Zustand docs
+* Stack Overflow
