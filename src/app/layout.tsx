@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Fredoka } from 'next/font/google';
 import BootstrapClient from './BootstrapClient';
 import NavBar from '@/app/NavBar';
+import Footer from './Footer';
 
 const fredoka = Fredoka({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={fredoka.className} data-bs-theme={'dark'}>
         <NavBar />
         {children}
+        <Footer />
         <BootstrapClient />
       </body>
     </html>

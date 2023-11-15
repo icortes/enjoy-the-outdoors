@@ -28,7 +28,7 @@ export default function NationalParks() {
   };
 
   return (
-    <main className='pt-5' style={backgroundImage}>
+    <main className='py-5' style={backgroundImage}>
       <div className='container-md pt-5'>
         <Search />
         <div className='row mt-3 g-3'>
