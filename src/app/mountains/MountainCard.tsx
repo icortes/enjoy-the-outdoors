@@ -20,7 +20,7 @@ export default function MountainCard() {
     fetch(`api/mountain/${mountainStore.selectedMountain}`).then((response) => {
       response.json().then((data) => setMountainData(data));
     });
-  }, [mountainStore.selectedMountain]);
+  }, [mountainStore]);
 
   return (
     <div>

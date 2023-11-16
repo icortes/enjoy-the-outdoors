@@ -47,7 +47,7 @@ export default function CardList({ locationName, state }: NationalParkNamesAndSt
 
   return (
     <>
-      {Array.isArray(mountainData) && mountainData
+      {mountainData
         ? mountainData.map((mountain) => (
             <div className='col-12 col-sm-6 col-md-4' key={mountain.id}>
               <Card

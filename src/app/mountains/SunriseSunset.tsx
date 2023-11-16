@@ -34,13 +34,13 @@ export default function SunriseSunset({ coords }: { coords: Coords }) {
       <div className='col-6'>
         <div className='d-flex align-items-center justify-content-center'>
           <i className='bi bi-sunrise fs-1'></i>
-          <p className='my-auto ms-3 fs-3'>{sunriseSunset.sunrise}</p>
+          <p className='my-auto ms-3 fs-3'>{sunriseSunset.sunrise} (GMT)</p>
         </div>
       </div>
       <div className='col-6'>
         <div className='d-flex align-items-center justify-content-center'>
           <i className='bi bi-sunset fs-1'></i>
-          <p className='my-auto ms-3 fs-3'>{sunriseSunset.sunset}</p>
+          <p className='my-auto ms-3 fs-3'>{sunriseSunset.sunset} (GMT)</p>
         </div>
       </div>
     </div>
