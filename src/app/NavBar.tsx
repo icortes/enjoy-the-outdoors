@@ -32,29 +32,32 @@ export default function NavBar() {
     window.addEventListener('resize', handleResize);
   }, []);
 
-  function Navlinks({ textColor }: { textColor: string }) {
+  const textShadow = { textShadow: '3px 3px 2px rgba(0, 0, 0, 1)' };
+  const whiteTextShadow = { textShadow: '3px 3px 2px rgba(255, 255, 255, 1)' };
+
+  function Navlinks({ textColor, style }: { textColor: string; style: object }) {
     return (
-      <div className='navbar-nav d-flex justify-content-center w-100'>
+      <div className='navbar-nav d-flex justify-content-center w-100' style={style}>
         <Link
           className={
             navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
           }
           href='/'>
-          Home
+          <h1>Home</h1>
         </Link>
         <Link
           className={
             navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
           }
           href='/nationalparks'>
-          National Parks
+          <h1>National Parks</h1>
         </Link>
         <Link
           className={
             navbar ? 'nav-link fs-4 text-success-emphasis' : `nav-link fs-4 ${textColor}`
           }
           href='/mountains'>
-          Mountains
+          <h1>Mountains</h1>
         </Link>
       </div>
     );
@@ -94,9 +97,9 @@ export default function NavBar() {
         </button>
         <div className='collapse navbar-collapse' id='navbar'>
           {pathname == '/' ? (
-            <Navlinks textColor={'text-white'} />
+            <Navlinks textColor={'text-white'} style={textShadow} />
           ) : (
-            <Navlinks textColor={'text-black'} />
+            <Navlinks textColor={'text-black'} style={whiteTextShadow} />
           )}
         </div>
       </div>
