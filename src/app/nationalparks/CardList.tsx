@@ -23,11 +23,11 @@ type NationalPark = {
 };
 
 type NationalParkNamesAndStates = {
-  locationName: string;
+  parkType: string;
   state: string;
 };
 
-export default function CardList({ locationName, state }: NationalParkNamesAndStates) {
+export default function CardList({ parkType, state }: NationalParkNamesAndStates) {
   const [mountainData, setMountainData] = useState<NationalPark[]>([]);
   const searchByState = useSearchByStore();
   const parkTypeState = useSelectedParkTypeStore();
@@ -39,11 +39,11 @@ export default function CardList({ locationName, state }: NationalParkNamesAndSt
         .then((response) => response.json())
         .then((data) => setMountainData(data));
     } else {
-      fetch(`api/nationalparks/parktype/${locationName}`)
+      fetch(`api/nationalparks/parktype/${parkType}`)
         .then((response) => response.json())
         .then((data) => setMountainData(data));
     }
-  }, [locationName, parkTypeState, searchByState, state, stateState]);
+  }, [parkType, parkTypeState, searchByState, state, stateState]);
 
   return (
     <>

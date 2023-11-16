@@ -26,7 +26,7 @@ export default function NationalParks() {
         <Search />
         <div className='row mt-3 g-3'>
           <CardList
-            locationName={selectedParkTypeState.selectedParkType}
+            parkType={selectedParkTypeState.selectedParkType}
             state={selectedState.selectedState}
           />
         </div>
