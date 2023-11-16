@@ -45,7 +45,6 @@ export default function CardList({ locationName, state }: NationalParkNamesAndSt
     }
   }, [locationName, parkTypeState, searchByState, state, stateState]);
 
-  console.log(mountainData);
   return (
     <>
       {Array.isArray(mountainData) && mountainData
@@ -63,6 +62,7 @@ export default function CardList({ locationName, state }: NationalParkNamesAndSt
                 latitude={mountain.Latitude}
                 longitude={mountain.Longitude}
                 location={mountain.Location}
+                visit={mountain.Visit}
               />
             </div>
           ))

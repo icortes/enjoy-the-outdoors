@@ -10,7 +10,6 @@ export async function GET(request: Request, { params }: { params: { state: strin
         where: { State: params.state },
       });
 
-      console.log(data);
       return Response.json(data);
     }
   } catch (error) {

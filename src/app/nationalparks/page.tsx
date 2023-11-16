@@ -18,7 +18,6 @@ export default function NationalParks() {
     height: '100%',
   };
 
-  //ternary operator
   return (
     <main className='py-5' style={backgroundImage}>
       <div
