@@ -4,6 +4,15 @@
 
 ## Pages
 
+### Home 
+![Home Page](./images/home-min.png)
+
+### National Parks
+![National Parks Page](./images/nationalparks-min.png)
+
+### Mountains
+![Mountains Page](./images/mountains-min.png)
+
 ## Code Highlight
 
 ```Typescript

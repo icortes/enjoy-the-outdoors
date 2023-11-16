@@ -17,9 +17,9 @@ export default function MountainCard() {
   const mountainStore = useMountainStore();
 
   useEffect(() => {
-    fetch(`api/mountain/${mountainStore.selectedMountain}`).then((response) => {
-      response.json().then((data) => setMountainData(data));
-    });
+    fetch(`api/mountain/${mountainStore.selectedMountain}`)
+      .then((response) => response.json())
+      .then((data) => setMountainData(data));
   }, [mountainStore]);
 
   return (

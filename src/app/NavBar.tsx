@@ -99,7 +99,7 @@ export default function NavBar() {
           {pathname == '/' ? (
             <Navlinks textColor={'text-white'} style={textShadow} />
           ) : (
-            <Navlinks textColor={'text-black'} style={whiteTextShadow} />
+            <Navlinks textColor={'text-black'} style={{}} />
           )}
         </div>
       </div>
